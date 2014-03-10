@@ -12,7 +12,7 @@ public class Vector<T> implements Iterable<T> {
 
 	//Initial capacity of the vector
 	protected final int INITIAL_CAPACITY = 16;
-	private T[] content;
+	protected T[] content;
 	private int size = 0;
 
 	/**
@@ -96,6 +96,14 @@ public class Vector<T> implements Iterable<T> {
 		}
 		size--;
 		return tmp;
+	}
+
+	/**
+	 * Checks if the container is empty
+	 * @return true if the container is empty
+	 */
+	public boolean isEmpty(){
+		return size <= 0;
 	}
 
 	@Override
