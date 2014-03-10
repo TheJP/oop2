@@ -109,4 +109,16 @@ public class VectorTest {
 			Assert.assertSame(testVector.popFront(), newVector.popFront());
 		}
 	}
+
+	@Test
+	public void testIterator(){
+		for(int i = 0; i < 20; i++){
+			testVector.pushBack("test"+i);
+		}
+		int count = 0;
+		for(String s : testVector){
+			Assert.assertEquals("test"+(count++), s);
+		}
+		Assert.assertEquals(20, count);
+	}
 }
