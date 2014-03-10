@@ -1,4 +1,11 @@
+package ch.fhnw.oop2.collections;
 
+/**
+ * Generic vector (similar to ArrayList)
+ * @author JP
+ *
+ * @param <T>
+ */
 public class Vector<T> {
 
 	//Initial capacity of the vector
@@ -80,6 +87,7 @@ public class Vector<T> {
 	 * @return
 	 */
 	public T popFront(){
+		if(size <= 0){ return null; }
 		T tmp = content[0];
 		for(int i = 1; i < size; i++){
 			content[i-1] = content[i];
