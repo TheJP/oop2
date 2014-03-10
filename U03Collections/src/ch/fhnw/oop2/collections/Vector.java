@@ -1,12 +1,14 @@
 package ch.fhnw.oop2.collections;
 
+import java.util.Iterator;
+
 /**
  * Generic vector (similar to ArrayList)
  * @author JP
  *
  * @param <T>
  */
-public class Vector<T> {
+public class Vector<T> implements Iterable<T> {
 
 	//Initial capacity of the vector
 	protected final int INITIAL_CAPACITY = 16;
@@ -94,5 +96,24 @@ public class Vector<T> {
 		}
 		size--;
 		return tmp;
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return new Iterator<T>() {
+			private int index = 0;
+			@Override
+			public boolean hasNext() {
+				return index < size();
+			}
+			@Override
+			public T next() {
+				return get(index++);
+			}
+			@Override
+			public void remove() {
+				throw new UnsupportedOperationException();
+			}
+		};
 	}
 }
